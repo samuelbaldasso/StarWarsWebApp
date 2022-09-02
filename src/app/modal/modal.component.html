@@ -1,3 +1,20 @@
-<p>
-  modal works!
-</p>
+<ion-content>
+  <div class="modal" *ngFor="let item of appModal">
+    <h3>Name: {{ item.name }}</h3>
+    <h3>Hair color: {{ item.hairColor }}</h3>
+    <h3>Eye color: {{ item.eyeColor }}</h3>
+    <h3>Birth year: {{ item.birthYear }}</h3>
+    <h3>Gender: {{ item.gender }}</h3>
+    <h3>Created at: {{ item.created }}</h3>
+    <h3>Edited at: {{ item.edited }}</h3>
+    <h3>URL: {{ item.url }}</h3>
+  </div>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading..."
+    >
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class SwapiService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getPeople(type: string, page: number): Observable<any> {
     const url = `https://swapi.dev/api/${type}/?page=${page}`;

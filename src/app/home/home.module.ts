@@ -1,4 +1,4 @@
-import { ListItemComponent } from './../list-item/list-item.component';
+
 import { ModalComponent } from './../modal/modal.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,6 +10,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, HomePageRoutingModule],
-  declarations: [HomePage, ModalComponent, ListItemComponent],
+  declarations: [HomePage, ModalComponent],
+  exports: [HomePage, ModalComponent]
 })
-export class HomePageModule {}
+export class HomePageModule { }

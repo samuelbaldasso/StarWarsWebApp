@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SwapiService } from '../swapi.service';
@@ -11,16 +12,18 @@ export class HomePage implements OnInit {
   modelType = 'people';
   appList = [];
   appModal = [];
-  page = 1;
+  page = 0;
   loading: any;
+  people: Observable<any>;
   constructor(private service: SwapiService, private router: Router) { }
 
   ngOnInit(): void {
+    this.people = this.service.getPeople(this.page);
     this.initialize();
   }
 
   initializeNameList() {
-    this.service.getPeople(this.modelType, this.page).subscribe((data) => {
+    this.service.getPeople(this.page).subscribe((data) => {
       data.results.forEach((res) =>
         this.appList.push({ id: res.id, name: res.name })
       );
@@ -35,7 +38,7 @@ export class HomePage implements OnInit {
   loadData(event) {
     this.page = this.page + 1;
     this.loading = event;
-    this.service.getPeople(this.modelType, this.page).subscribe((data) => {
+    this.service.getPeople(this.page).subscribe((data) => {
       data.results.forEach((res) =>
         this.appList.push({ id: res.id, name: res.name })
       );
@@ -47,22 +50,9 @@ export class HomePage implements OnInit {
     });
   }
 
-  listListener() {
-    this.service.getPeople(this.modelType, this.page).subscribe(people => {
-      people.results.forEach((res) =>
-        this.appModal.push({
-          id: res.id,
-          name: res.name,
-          hairColor: res.hair_color,
-          eyeColor: res.eye_color,
-          birthYear: res.birth_year,
-          gender: res.gender,
-          created: res.created,
-          edited: res.edited,
-          url: res.url
-        })
-      );
-    });
-    this.router.navigateByUrl('info');
+  openDetails(people) {
+    const split = people.url.split('/');
+    const peopleId = split[split.length - 2];
+    this.router.navigateByUrl(`/${peopleId}`);
   }
 }

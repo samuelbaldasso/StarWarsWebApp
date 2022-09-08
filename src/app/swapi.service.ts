@@ -8,8 +8,13 @@ import { Observable } from 'rxjs';
 export class SwapiService {
   constructor(private http: HttpClient) { }
 
-  getPeople(type: string, page: number): Observable<any> {
-    const url = `https://swapi.dev/api/${type}/?page=${page}`;
+  getPeople(page: any): Observable<any> {
+    const url = `https://swapi.dev/api/people/?page=${page}`;
+    return this.http.get(url);
+  }
+
+  getPeopleById(id: any): Observable<any> {
+    const url = `https://swapi.dev/api/people/${id}`;
     return this.http.get(url);
   }
 }

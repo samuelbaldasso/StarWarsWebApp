@@ -1,4 +1,4 @@
-import { ModalComponent } from './../modal/modal.component';
+import { ModalComponent } from '../modal/modal.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home.page';
@@ -9,7 +9,7 @@ const routes: Routes = [
     component: HomePage,
   },
   {
-    path: 'info',
+    path: ':id',
     component: ModalComponent
   }];
 

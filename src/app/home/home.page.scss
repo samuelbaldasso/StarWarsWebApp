@@ -1,6 +1,5 @@
 ion-content {
   --ion-background-color: #000;
-  overflow-y: scroll;
 }
 
 ion-header img {
@@ -11,4 +10,14 @@ h2 {
   padding: 16px;
   color: white;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+fa-icon {
+  color: white;
+  margin-left: 20px;
+}
+
+fa-icon:hover {
+  opacity: 0.5;
+  color: aqua;
 }

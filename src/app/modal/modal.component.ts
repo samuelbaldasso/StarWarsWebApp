@@ -1,7 +1,7 @@
-import { SwapiService } from '../swapi.service';
+import { SwapiService } from '../../services/swapi.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ModalComponent implements OnInit {
   people: any;
+  faArrow = faArrowLeft;
   constructor(private service: SwapiService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {

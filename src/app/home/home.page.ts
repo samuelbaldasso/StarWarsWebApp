@@ -1,7 +1,8 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SwapiService } from '../swapi.service';
+import { SwapiService } from '../../services/swapi.service';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +10,9 @@ import { SwapiService } from '../swapi.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  modelType = 'people';
   appList = [];
-  appModal = [];
   page = 0;
+  faArrow = faArrowRight;
   loading: any;
   people: Observable<any>;
   constructor(private service: SwapiService, private router: Router) { }
@@ -25,7 +25,7 @@ export class HomePage implements OnInit {
   initializeNameList() {
     this.service.getPeople(this.page).subscribe((data) => {
       data.results.forEach((res) =>
-        this.appList.push({ id: res.id, name: res.name })
+        this.appList.push({ url: res.url, name: res.name })
       );
     });
   }
@@ -40,7 +40,7 @@ export class HomePage implements OnInit {
     this.loading = event;
     this.service.getPeople(this.page).subscribe((data) => {
       data.results.forEach((res) =>
-        this.appList.push({ id: res.id, name: res.name })
+        this.appList.push({ url: res.url, name: res.name })
       );
       if (data.results.length > 0 && this.page < 9) {
         this.loading.target.complete();

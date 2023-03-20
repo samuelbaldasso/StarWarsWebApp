@@ -7,12 +7,13 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div
-    class="content-list"
-    *ngFor="let person of appList"
-    (click)="openDetails(person)"
-  >
-    <h2>{{person.name}}<fa-icon [icon]="faArrow"></fa-icon></h2>
+  <div class="content-list" *ngFor="let person of appList">
+    <h2>
+      {{person.name}}<fa-icon
+        (click)="openDetails(person)"
+        [icon]="faArrow"
+      ></fa-icon>
+    </h2>
   </div>
 
   <ion-infinite-scroll threshold="30%" (ionInfinite)="loadData($event)">

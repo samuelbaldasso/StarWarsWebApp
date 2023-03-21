@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-title>Login User</ion-title>
+</ion-header>
+
+<ion-content>
+  <form>
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" #email required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" #password required></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <button type="submit" (click)="signIn(email, password)" expand="block">
+          Login by email
+        </button>
+
+        <button type="submit" (click)="signInWithGoogle()" expand="block">
+          Login by Google
+        </button>
+
+        <h3>Don't have an account? <a routerLink="/register">Register</a></h3>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

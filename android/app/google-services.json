@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "696404001851",
+    "project_id": "starwars-3b596",
+    "storage_bucket": "starwars-3b596.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:696404001851:android:e5e4d4da89ab3df001881e",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "696404001851-gmp8qpc11chs1gj06b9n3k1e0ll1lcva.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.ionic.starter",
+            "certificate_hash": "5299054f3baad3f8ed2c8d523e867ffca7526ef4"
+          }
+        },
+        {
+          "client_id": "696404001851-fu7o8hfnbaoadufg6u6c77t34ud1plq9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVetQjCUKvpQGjLL5ELYGmgN0kU9_rv9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "696404001851-fu7o8hfnbaoadufg6u6c77t34ud1plq9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -8,11 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
+import { LoginComponent } from '../login/login.component';
+import { RegisterComponent } from '../register/register.component';
+import { ModalChangeNameComponent } from '../modal-change-name/modal-change-name.component';
+
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, HomePageRoutingModule,
     FontAwesomeModule],
-  declarations: [HomePage, ModalComponent],
-  exports: [HomePage, ModalComponent]
+  declarations: [HomePage, ModalComponent, LoginComponent, RegisterComponent, ModalChangeNameComponent],
+  exports: [HomePage, ModalComponent, LoginComponent, RegisterComponent, ModalChangeNameComponent]
 })
 export class HomePageModule { }

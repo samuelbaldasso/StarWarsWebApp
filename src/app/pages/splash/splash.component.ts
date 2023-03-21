@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
+import { AuthenticationService } from 'src/services/auth.service';
 
 @Component({
   selector: 'app-splash',
@@ -9,11 +10,14 @@ import { Platform } from '@ionic/angular';
 })
 export class SplashComponent {
 
-  constructor(private router: Router, private plat: Platform) {
+  constructor(private router: Router, private plat: Platform, private auth: AuthenticationService) {
     this.initializeApp();
   }
   initializeApp() {
-    this.plat.ready().then(() => setTimeout(() => this.router.navigateByUrl(''), 3000));
+    this.plat.ready().then(() => setTimeout(() =>
+      this.auth.isLoggedIn() === true ?
+        this.router.navigateByUrl('') :
+        this.router.navigateByUrl('/login'), 2000));
   }
 
 }

@@ -1,4 +1,4 @@
-import { SwapiService } from '../../services/swapi.service';
+import { SwapiService } from '../../../services/swapi.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';

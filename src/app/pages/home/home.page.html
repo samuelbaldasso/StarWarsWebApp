@@ -1,0 +1,37 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <h3 class="ion-padding" (click)="signOut()">Logout</h3>
+  <h3 class="ion-padding" routerLink="/modal-change">Change name</h3>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <img
+      src="https://fontmeme.com/permalink/220901/21c010a15ab1f11501bf3b5bd37e5d7f.png"
+      alt="fonte-de-guerra-nas-estrelas"
+      border="0"
+    />
+  </ion-header>
+
+  <ion-content [fullscreen]="true">
+    <div class="content-list" *ngFor="let person of appList">
+      <h2>
+        {{person.name}}<fa-icon
+          (click)="openDetails(person)"
+          [icon]="faArrow"
+        ></fa-icon>
+      </h2>
+    </div>
+
+    <ion-infinite-scroll threshold="30%" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="crescent"
+        loadingText="Loading..."
+      >
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-content>
+</div>

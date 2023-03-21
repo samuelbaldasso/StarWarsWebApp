@@ -1,8 +1,9 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SwapiService } from '../../services/swapi.service';
+import { SwapiService } from '../../../services/swapi.service';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { AuthenticationService } from 'src/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ export class HomePage implements OnInit {
   faArrow = faArrowRight;
   loading: any;
   people: Observable<any>;
-  constructor(private service: SwapiService, private router: Router) { }
+  firebase: any;
+  constructor(private service: SwapiService, private router: Router, private auth: AuthenticationService) { }
 
   ngOnInit(): void {
     this.people = this.service.getPeople(this.page);
@@ -54,5 +56,9 @@ export class HomePage implements OnInit {
     const split = people.url.split('/');
     const peopleId = split[split.length - 2];
     this.router.navigateByUrl(`/${peopleId}`);
+  }
+
+  signOut() {
+    this.auth.signOut();
   }
 }

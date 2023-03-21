@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home.page';
 import { SplashComponent } from '../splash/splash.component';
+import { LoginComponent } from '../login/login.component';
+import { RegisterComponent } from '../register/register.component';
+import { ModalChangeNameComponent } from '../modal-change-name/modal-change-name.component';
 
 const routes: Routes = [
   {
@@ -14,9 +17,22 @@ const routes: Routes = [
     component: SplashComponent,
   },
   {
-    path: ':id',
+    path: 'modal/:id',
     component: ModalComponent
-  }];
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'modal-change',
+    component: ModalChangeNameComponent
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

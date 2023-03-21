@@ -12,6 +12,6 @@ export class AppComponent {
     this.initializeApp();
   }
   initializeApp() {
-    this.plat.ready().then(() => this.router.navigateByUrl('splash'));
+    this.plat.ready().then(() => this.router.navigateByUrl('/splash'));
   }
 }

@@ -15,7 +15,7 @@ export class SplashComponent {
   }
   initializeApp() {
     this.plat.ready().then(() => setTimeout(() =>
-      this.auth.isLoggedIn() === true ?
+      this.auth.isLoggedIn() ?
         this.router.navigateByUrl('') :
         this.router.navigateByUrl('/login'), 2000));
   }

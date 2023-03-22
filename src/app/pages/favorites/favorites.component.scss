@@ -1,0 +1,31 @@
+ion-header {
+  display: flex;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 12px;
+}
+
+.modal {
+  background-color: black;
+  margin: 16px;
+  border-radius: 20px;
+  padding: 16px;
+}
+
+h3 {
+  padding: 16px;
+  color: white;
+  font-size: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+fa-icon {
+  padding: 10px 20px 0px;
+  margin-top: 12px;
+  font-size: large;
+  color: white;
+}
+
+fa-icon:hover {
+  opacity: 0.5;
+  color: aqua;
+}

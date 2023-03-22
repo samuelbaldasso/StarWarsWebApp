@@ -8,6 +8,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { ToastController } from '@ionic/angular';
+import { SwapiService } from './swapi.service';
 
 @Injectable({
   providedIn: 'root',
@@ -79,11 +80,11 @@ export class AuthenticationService {
     const user = JSON.parse(localStorage.getItem('user'));
     return user.emailVerified !== false ? true : false;
   }
-  // Sign in with Gmail
+
   googleAuth() {
     return this.authLogin(new auth.GoogleAuthProvider());
   }
-  // Auth providers
+
   authLogin(provider) {
     return this.ngFireAuth
       .signInWithPopup(provider)
@@ -94,7 +95,7 @@ export class AuthenticationService {
         this.presentToast('bottom', 'Error while authenticating.');
       });
   }
-  // Store user in localStorage
+
   setUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.afStore.doc(
       `users/${user.uid}`
@@ -110,7 +111,7 @@ export class AuthenticationService {
       merge: true,
     });
   }
-  // Sign-out
+
   signOut() {
     return this.ngFireAuth.signOut().then(() => {
       localStorage.removeItem('user');

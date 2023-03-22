@@ -6,6 +6,7 @@ import { SplashComponent } from '../splash/splash.component';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { ModalChangeNameComponent } from '../modal-change-name/modal-change-name.component';
+import { FavoritesComponent } from '../favorites/favorites.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'modal-change',
     component: ModalChangeNameComponent
+  },
+  {
+    path: 'favorites/:id',
+    component: FavoritesComponent
   },
 ];
 

@@ -11,12 +11,14 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { ModalChangeNameComponent } from '../modal-change-name/modal-change-name.component';
+import { FilterNamePipe } from 'src/app/pipes/fliter_name.pipe';
+import { FavoritesComponent } from '../favorites/favorites.component';
 
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, HomePageRoutingModule,
     FontAwesomeModule],
-  declarations: [HomePage, ModalComponent, LoginComponent, RegisterComponent, ModalChangeNameComponent],
-  exports: [HomePage, ModalComponent, LoginComponent, RegisterComponent, ModalChangeNameComponent]
+  declarations: [HomePage, ModalComponent, LoginComponent, RegisterComponent, ModalChangeNameComponent, FilterNamePipe, FavoritesComponent],
+  exports: [HomePage, ModalComponent, LoginComponent, RegisterComponent, ModalChangeNameComponent, FilterNamePipe, FavoritesComponent]
 })
 export class HomePageModule { }

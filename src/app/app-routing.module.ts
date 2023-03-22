@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'modal',
+    redirectTo: '',
     pathMatch: 'full'
   },
 ];

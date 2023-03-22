@@ -1,0 +1,10 @@
+<ion-header>
+  <ion-back-button></ion-back-button>
+  <ion-title>Favorites</ion-title>
+</ion-header>
+
+<ion-content>
+  <div class="modal" *ngFor="let person of people">
+    <h3 (click)="openDetails(person)">{{ person.name }}</h3>
+  </div>
+</ion-content>

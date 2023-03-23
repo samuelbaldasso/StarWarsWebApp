@@ -4,45 +4,65 @@
       <ion-title>{{name}}</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div class="options">
-    <h3 class="ion-padding" (click)="signOut()">Logout</h3>
-    <h3 class="ion-padding" routerLink="/modal-change">Change name</h3>
+  <div class="options" *ngFor="let person of appMenu">
+    <h3
+      class="ion-padding"
+      *ngIf="appMenu.indexOf(person) === 1"
+      (click)="signOut()"
+    >
+      Logout
+    </h3>
+    <h3
+      class="ion-padding"
+      *ngIf="appMenu.indexOf(person) === 1"
+      routerLink="/modal-change"
+    >
+      Change name
+    </h3>
+    <h3
+      class="ion-padding"
+      *ngIf="appMenu.indexOf(person) === 1"
+      (click)="openDetailsFromFavorites(person)"
+    >
+      Favorites
+    </h3>
   </div>
 </ion-menu>
-<div class="ion-page" id="main-content">
-  <ion-header>
+
+<ion-header>
+  <div class="img">
     <img
       src="https://fontmeme.com/permalink/220901/21c010a15ab1f11501bf3b5bd37e5d7f.png"
       alt="fonte-de-guerra-nas-estrelas"
       border="0"
     />
-  </ion-header>
+  </div>
 
-  <ion-content>
-    <div class="content-field">
-      <div class="field">
-        <fa-icon [icon]="faSearch" class="search"></fa-icon>
-        <input
-          class="input"
-          type="text"
-          placeholder="Search characters"
-          [(ngModel)]="searchText"
-        />
-      </div>
+  <div class="content-field">
+    <div class="field">
+      <fa-icon [icon]="faSearch" class="search"></fa-icon>
+      <input
+        class="input"
+        type="text"
+        placeholder="Search characters"
+        [(ngModel)]="searchText"
+      />
     </div>
+  </div>
+</ion-header>
 
-    <div class="listInfo">
-      <div
-        class="content-list"
-        *ngFor="let person of appList | filter: searchText"
-      >
-        <h2 (click)="openDetails(person)">{{person.name}}</h2>
-        <fa-icon
-          [icon]="faStar"
-          class="star"
-          (click)="openDetailsFromFavorites(person)"
-        ></fa-icon>
-      </div>
+<div class="ion-page" id="main-content">
+  <ion-content>
+    <div
+      class="content-list"
+      *ngFor="let person of appList | filter: searchText"
+    >
+      <h2 (click)="openDetails(person)">{{person.name}}</h2>
+      <fa-icon
+        [icon]="faStar"
+        class="star"
+        (click)="openDetailsFromFavorites(person)"
+      ></fa-icon>
     </div>
 
     <ion-infinite-scroll threshold="30%" (ionInfinite)="loadData($event)">

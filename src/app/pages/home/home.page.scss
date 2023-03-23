@@ -1,5 +1,10 @@
 ion-content {
   --ion-background-color: #000;
+  display: block;
+}
+
+.ion-page {
+  margin-top: 150px;
 }
 
 ion-header img {
@@ -11,7 +16,7 @@ ion-header {
 }
 
 h2 {
-  padding: 20px 0px;
+  padding: 10px 5px;
   color: white;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-decoration: underline;
@@ -22,7 +27,7 @@ fa-icon {
 }
 
 .star:hover {
-  opacity: 0.5;
+  opacity: 0.7;
   color: aqua;
 }
 
@@ -40,17 +45,15 @@ fa-icon {
   z-index: 11;
 }
 
-.listInfo {
-  margin: 30px;
+.content-list {
+  margin: 20px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  position: relative;
 }
 
-.content-list {
+.listed {
   display: flex;
-  flex-direction: row;
-  position: relative;
+  margin-top: 20px;
 }
 
 .input {
@@ -64,12 +67,12 @@ fa-icon {
   border-radius: 10px;
 }
 
-.star {
-  position: absolute;
-  bottom: 30px;
-  right: 0px;
-}
-
 .search {
   margin-bottom: 4px;
+}
+
+.star {
+  position: absolute;
+  bottom: 20px;
+  right: 0px;
 }

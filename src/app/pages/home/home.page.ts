@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SwapiService } from '../../../services/swapi.service';
@@ -14,15 +14,16 @@ import { FavoritesService } from 'src/services/favorites.service';
 export class HomePage implements OnInit {
   @Input() name;
   appList = [];
-  appFavorites = [];
   page = 0;
   faArrow = faArrowRight;
   faSearch = faSearch;
   faStar = faStar;
   loading: any;
   isFavorite = false;
+  isButton = false;
+  appMenu = [];
   searchText = '';
-  people: Observable<any>;
+  people: any;
   constructor(private service: SwapiService, private favorite: FavoritesService, private router: Router,
     private auth: AuthenticationService, private activatedRoute: ActivatedRoute) { }
 
@@ -31,10 +32,7 @@ export class HomePage implements OnInit {
     this.service.getPeople(this.page).subscribe((data) => {
       data.results.forEach((res) => {
         this.appList.push({ url: res.url, name: res.name });
-        if (this.isFavorite) {
-          this.appFavorites.push(res);
-          this.favorite.setFavoritesData(res);
-        }
+        this.appMenu = [...this.appList];
       });
     });
     this.getDisplayName();
@@ -74,7 +72,7 @@ export class HomePage implements OnInit {
     const split = people.url.split('/');
     const peopleId = split[split.length - 2];
     this.isFavorite = true;
-    this.appFavorites.push(people);
-    this.router.navigate([`/favorites/${peopleId}`], { queryParams: this.appFavorites });
+    const favorites = this.favorite.setFavoritesData(people, peopleId);
+    this.router.navigate([`favorites/${peopleId}`], { queryParams: favorites });
   }
 }

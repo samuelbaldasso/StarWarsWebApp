@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/dot-notation */
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreDocument, DocumentChangeAction } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { SwapiService } from './swapi.service';
-import { Character } from 'src/app/models/character';
 
 @Injectable({
   providedIn: 'root',
@@ -10,10 +10,7 @@ import { Character } from 'src/app/models/character';
 
 export class FavoritesService {
   favoriteData: any;
-  page = 0;
-  userName: any;
-  appFavorites = [];
-  isFavorite = false;
+  favorites = [];
   constructor(
     public router: Router,
     public swapi: SwapiService,
@@ -21,23 +18,21 @@ export class FavoritesService {
   ) {
   };
 
-  setFavoritesData(favorites) {
-    const favoriteRef: AngularFirestoreDocument<any> = this.afStore.doc(
-      `favorites/${favorites.uid}`
-    );
+  setFavoritesData(favorite, id) {
+    const favoriteRef: AngularFirestoreDocument<any> = this.afStore.doc(`favorites/${id}`);
     this.favoriteData = {
-      url: favorites.url,
-      name: favorites.name,
-      hairColor: favorites.hair_color,
-      eyeColor: favorites.eye_color,
-      birthday: favorites.birth_year,
-      gender: favorites.gender,
-      created: favorites.created,
-      edited: favorites.edited,
+      url: favorite.url,
+      name: favorite.name,
     };
-    return favoriteRef.set(this.favoriteData, {
+    favoriteRef.set(this.favoriteData, {
       merge: true,
     });
+    const favoriteCol = this.afStore.collection('favorites');
+    favoriteCol.get().subscribe(res => {
+      if (res.docs.indexOf(favorite) === -1) {
+        res.docs.map((e) => this.favorites.push(e.data()));
+      }
+    });
+    return this.favorites;
   }
 }
-

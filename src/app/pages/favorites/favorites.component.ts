@@ -10,9 +10,6 @@ import { SwapiService } from 'src/services/swapi.service';
 })
 export class FavoritesComponent implements OnInit {
   people: any;
-  page = 0;
-  id: any;
-  loading: any;
   constructor(private service: FavoritesService, private router: Router,
     private swapi: SwapiService, private activatedRoute: ActivatedRoute) { }
 

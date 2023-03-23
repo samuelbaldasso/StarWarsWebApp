@@ -1,14 +1,14 @@
-ion-header{
+ion-header {
   display: flex;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  padding: 12px;
+  padding: 24px;
 }
 
-ion-item{
+ion-item {
   margin: 24px;
 }
 
-button{
+button {
   display: flex;
   width: 50vw;
   justify-content: center;
@@ -18,14 +18,13 @@ button{
   color: blue;
   padding: 16px;
   border-radius: 25px;
-
 }
 
-button:hover{
+button:hover {
   color: white;
 }
 
-h3{
+h3 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   font-size: 12px;

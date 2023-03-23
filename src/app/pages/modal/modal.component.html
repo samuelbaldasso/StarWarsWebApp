@@ -1,7 +1,10 @@
+<ion-header>
+  <ion-back-button></ion-back-button>
+  <ion-title>Character Data</ion-title>
+</ion-header>
+
 <ion-content>
   <div class="modal" *ngIf="people">
-    <fa-icon [icon]="faArrow" routerLink="/"></fa-icon>
-
     <h3>Name: {{ people.name }}</h3>
     <h3>Hair color: {{ people.hair_color }}</h3>
     <h3>Eye color: {{ people.eye_color }}</h3>

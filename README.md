@@ -33,8 +33,8 @@ Este é um aplicativo móvel que utiliza a API SWAPI (Star Wars API) para exibir
 
 1. Clone o repositório:
     ```sh
-    git clone https://github.com/samuelbaldasso/Star_Wars-TypeScript-Ionic-Angular-SWAPI-Firebase.git
-    cd Star_Wars-TypeScript-Ionic-Angular-SWAPI-Firebase
+    git clone https://github.com/samuelbaldasso/StarWarsWebApp.git
+    cd StarWarsWebApp
     ```
 
 2. Instale as dependências:
